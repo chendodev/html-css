@@ -1,0 +1,250 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100%;
+  overflow: hidden;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+a, i, .logo p {
+  color: white;
+  font-weight: bold;
+}
+img {
+  width: 100%;
+  height: 100%;
+}
+* ::selection{
+  background-color: #FF5733;
+}
+/*Estilos Header*/
+.header {
+  width: 100%;
+  height: 50px;
+  background-color: #1a1a1a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  z-index: 10;
+  padding: 20px;
+}
+.header .logo, 
+.header .content_header,
+.content_header .form,
+.header .menu .info,
+.header .info .social li,
+.hero,
+.hero .description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header .logo {
+  gap: 10px;;
+}
+.header .image_logo {
+  width: 25px;
+}
+.header .image_menu {
+  width: 30px;
+  cursor: pointer;
+}
+/*Header Form Login*/
+.header .content_header {
+  gap: 40px;
+}
+.header .content_header .form {
+  gap: 10px;
+  position: relative;
+  user-select: none;
+}
+.header .content_header #user, .header .content_header .icon_user {
+  display: none;
+}
+@media (max-width: 991px) {
+  .header .content_header .form {
+    position: absolute;
+    background-color: #1a1a1a;
+    padding: 28px 30px;
+    border-radius: 6px;
+    top: 60px;
+    right: 70px;
+    display: none;
+    flex-direction: column;
+  }
+  .header .content_header .form .arrow {
+    position: absolute;
+    top: -8px;
+    right: 18px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent; /* Tamaño de la flecha */
+    border-right: 10px solid transparent;
+    border-bottom: 15px solid #1a1a1a; /* Color de la flecha */
+  }
+  .header .content_header .icon_user {
+    display: block;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  .header .content_header #user:checked ~ .form {
+    display: flex;
+  }
+}
+.header .content_header .form label:first-child {
+  position: relative;
+}
+.header .content_header .form label:first-child::after {
+  position: absolute;
+  content: "";
+  border-left: 1px solid #717171;
+  top: 1px;
+  margin-left: 8px;
+  height: 100%;
+}
+.header .content_header .form label a {
+  color: #FF5733;
+}
+.header .content_header .form label {
+  color: white;
+  margin-left: 14px;
+}
+.header .content_header .form input {
+  background-color: #1a1a1a;
+  border: 1px solid #717171;
+  padding: 4px;
+  border-radius: 6px;
+  color: white;
+  outline: none;
+}
+.header .content_header .form input[type="submit"] {
+  background-color: #FF5733;
+  border: none;
+  padding: 4px 14px;
+  cursor: pointer;
+}
+.header #show_menu {
+  display: none;
+}
+.header .menu {
+  background-color: #1a1a1a;
+  box-shadow: 2px 4px 4px #000;
+  position: absolute;
+  display: none;
+  flex-direction: column;
+  padding: 80px;
+  width: 540px;
+  max-width: 100%;
+  height: 100vh;
+  top: 50px;
+  right: 0;
+}
+.header .menu::after {
+  position: fixed;
+  content: "";
+  background-color: #1a1a1a99;
+  top: 50px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+.header #show_menu:checked ~ .menu {
+  display: flex;
+}
+.header .menu .pages li {
+  margin-top: 8px; 
+}
+.header .menu .pages a {
+  font-size: 30px;
+  text-transform: uppercase;
+  transition: color .2s ease-in-out;
+}
+.header .menu .pages a:hover {
+  color: #FF5733;
+}
+.header .menu .info {
+  justify-content: space-between;
+  margin-top: 60px;
+}
+@media (max-width: 768px) {
+  .header .menu .social a {
+    display: none;
+  }
+}
+@media (max-width: 350px) {
+  .header .menu .info {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .header .menu .social {
+    display: flex;
+  }
+}
+.header .info .social {
+  width: 140px;
+}
+.header .info .social li {
+  margin-top: 6px;
+  width: 100%;
+  justify-content: space-between;
+  gap: 20px;
+}
+.header .info .social i {
+  font-size: 30px;
+}
+.header .info .social a {
+  font-size: 20px;
+}
+.header .info .address li {
+  color: #ccc;
+  margin-top: 6px;
+}
+/*Estilos para el hero*/
+.hero {
+  position: relative;
+  background-color: #000000;
+  z-index: 0;
+  margin-top: 50px;
+}
+.hero img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  opacity: .5;
+}
+.hero .description {
+  position: absolute;
+  background-color: #FF573399;
+  flex-direction: column;
+  gap: 20px;
+  width: 540px;
+  max-width: 90%;
+  padding: 20px;
+  border-radius: 20px;
+}
+.hero .description h1 {
+  color: white;
+}
+.hero .description p {
+  color: white;
+}
+.hero .description button {
+  background-color: #1a1a1a;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  color: white;
+  border-radius: 6px;
+  position: relative;
+  z-index: 0;
+}
